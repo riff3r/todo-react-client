@@ -4,9 +4,9 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-// import Loading from "./Shared/Loading";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
+import Loading from "./Loading";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -25,9 +25,9 @@ const Login = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  // if (loading || gLoading) {
-  //   return <Loading></Loading>;
-  // }
+  if (loading || gLoading) {
+    return <Loading></Loading>;
+  }
 
   if (error || gError) {
     signInError = (
@@ -35,6 +35,10 @@ const Login = () => {
         <small>{error?.message || gError?.message}</small>
       </p>
     );
+  }
+
+  if (user || gUser) {
+    navigate(from, { replace: true });
   }
 
   const onSubmit = (data) => {

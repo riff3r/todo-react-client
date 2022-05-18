@@ -19,7 +19,6 @@ const TodoList = ({ todo, refetch }) => {
     });
   };
 
-  console.log(status);
   const handleDelete = () => {
     const url = `http://localhost:5000/list/${_id}`;
     axios.delete(url).then((res) => {
@@ -31,13 +30,17 @@ const TodoList = ({ todo, refetch }) => {
   };
 
   return (
-    <div className="bg-primary rounded p-5 flex justify-between items-center mb-5 ">
+    <div className="bg-gradient-to-r from-cyan-600 to-blue-500 rounded p-5 flex justify-between items-center mb-5 ">
       <h2 className={`text-white font-semibold text-2xl ${status && "done"}`}>
         {title}
       </h2>
 
       <div className="flex gap-5">
-        <button onClick={handleStatus} className="btn btn-xs btn-success">
+        <button
+          onClick={handleStatus}
+          className="btn btn-xs btn-success"
+          disabled={status}
+        >
           Done
         </button>
 

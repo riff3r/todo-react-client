@@ -37,7 +37,6 @@ const Home = () => {
 
   if (isLoading) return <Loading />;
 
-  console.log(lists.data);
   return (
     <div className="container mx-auto">
       <form
@@ -48,10 +47,10 @@ const Home = () => {
           {...register("title", { required: true })}
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full max-w-xs"
         />
 
-        <button class="btn btn-success">Add Todo</button>
+        <button className="btn btn-success">Add Todo</button>
       </form>
 
       <div className="w-2/3 mt-10 mx-auto">
