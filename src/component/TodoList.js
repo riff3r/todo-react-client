@@ -8,7 +8,7 @@ const TodoList = ({ todo, refetch }) => {
   const { title, _id } = todo;
 
   const handleStatus = () => {
-    const url = `http://localhost:5000/list/${_id}`;
+    const url = `https://quiet-garden-36081.herokuapp.com/list/${_id}`;
     axios.put(url).then((res) => {
       console.log(res);
       if (res.status === 200) {
@@ -20,7 +20,7 @@ const TodoList = ({ todo, refetch }) => {
   };
 
   const handleDelete = () => {
-    const url = `http://localhost:5000/list/${_id}`;
+    const url = `https://quiet-garden-36081.herokuapp.com/list/${_id}`;
     axios.delete(url).then((res) => {
       if (res.status === 200) {
         refetch();

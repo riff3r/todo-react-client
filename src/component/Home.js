@@ -12,7 +12,9 @@ const Home = () => {
     error,
     data: lists,
     refetch,
-  } = useQuery("todo", () => axios.get("http://localhost:5000/list"));
+  } = useQuery("todo", () =>
+    axios.get("https://quiet-garden-36081.herokuapp.com/list")
+  );
 
   const {
     register,
@@ -24,7 +26,7 @@ const Home = () => {
 
   const onSubmit = (data) => {
     data.status = false;
-    const url = `http://localhost:5000/list`;
+    const url = `https://quiet-garden-36081.herokuapp.com/list`;
 
     axios.post(url, data).then((res) => {
       if (res.status === 200) {
